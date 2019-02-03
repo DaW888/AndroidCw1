@@ -9,9 +9,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
         android:layout_weight="1"
-        android:background="#e8fafc">
+        android:background="#e8fafc"
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="50dp"
@@ -23,8 +23,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="10"
-            />
+            android:layout_weight="10" />
 
         <ImageView
             android:layout_width="50dp"
@@ -39,55 +38,53 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal"
-        android:background="#e8fafc">
+        android:background="#e8fafc"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="vertical"
             android:layout_weight="1"
-            >
+            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:src="@drawable/outline_camera_black_18dp"
-                />
+                android:src="@drawable/outline_camera_black_18dp" />
+
             <TextView
                 android:layout_width="match_parent"
-                android:gravity="center"
                 android:layout_height="wrap_content"
+                android:gravity="center"
 
-                android:textSize="20dp"
                 android:text="Camera"
-                />
+                android:textSize="20dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="vertical"
             android:layout_weight="1"
-            >
+            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:src="@drawable/outline_photo_library_black_18dp"
-                />
+                android:src="@drawable/outline_photo_library_black_18dp" />
+
             <TextView
                 android:layout_width="match_parent"
-                android:gravity="center"
                 android:layout_height="wrap_content"
+                android:gravity="center"
 
-                android:textSize="20dp"
                 android:text="Albums"
-                />
+                android:textSize="20dp" />
         </LinearLayout>
 
 
@@ -104,48 +101,46 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="vertical"
             android:layout_weight="1"
-            >
+            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:src="@drawable/outline_view_quilt_black_18dp"
-                />
+                android:src="@drawable/outline_view_quilt_black_18dp" />
+
             <TextView
                 android:layout_width="match_parent"
-                android:gravity="center"
                 android:layout_height="wrap_content"
+                android:gravity="center"
 
-                android:textSize="20dp"
                 android:text="Collage"
-                />
+                android:textSize="20dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="vertical"
             android:layout_weight="1"
-            >
+            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:src="@drawable/outline_language_black_18dp"
-                />
+                android:src="@drawable/outline_language_black_18dp" />
+
             <TextView
                 android:layout_width="match_parent"
-                android:gravity="center"
                 android:layout_height="wrap_content"
+                android:gravity="center"
 
-                android:textSize="20dp"
                 android:text="Internet"
-                />
+                android:textSize="20dp" />
         </LinearLayout>
 
     </LinearLayout>
