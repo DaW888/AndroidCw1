@@ -6,39 +6,35 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#e8fafc"
+        android:background="@color/imgBack"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="left|center"
-            android:layout_weight="1"
+            android:layout_width="@dimen/arrowSize"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
             android:src="@drawable/outline_arrow_back_ios_black_18dp" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="10" />
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center|right"
-            android:layout_weight="1"
+            android:layout_width="@dimen/arrowSize"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
             android:src="@drawable/outline_arrow_forward_ios_black_18dp" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#e8fafc"
+        android:background="@color/buttonMenu"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -49,8 +45,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/imgSize"
+                android:layout_height="@dimen/imgSize"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:src="@drawable/outline_camera_black_18dp" />
@@ -60,8 +56,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
 
-                android:text="Camera"
-                android:textSize="20dp" />
+                android:text="@string/camera"
+                android:textSize="@dimen/textSize" />
         </LinearLayout>
 
         <LinearLayout
@@ -72,8 +68,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/imgSize"
+                android:layout_height="@dimen/imgSize"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:src="@drawable/outline_photo_library_black_18dp" />
@@ -83,18 +79,18 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
 
-                android:text="Albums"
-                android:textSize="20dp" />
+                android:text="@string/albums"
+                android:textSize="@dimen/textSize" />
         </LinearLayout>
 
 
-    </LinearLayout>
+    </LinearLayout>]
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#e8fafc"
+        android:background="@color/buttonMenu"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -105,8 +101,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/imgSize"
+                android:layout_height="@dimen/imgSize"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:src="@drawable/outline_view_quilt_black_18dp" />
@@ -116,8 +112,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
 
-                android:text="Collage"
-                android:textSize="20dp" />
+                android:text="@string/collage"
+                android:textSize="@dimen/textSize" />
         </LinearLayout>
 
         <LinearLayout
@@ -128,8 +124,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/imgSize"
+                android:layout_height="@dimen/imgSize"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:src="@drawable/outline_language_black_18dp" />
@@ -139,8 +135,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
 
-                android:text="Internet"
-                android:textSize="20dp" />
+                android:text="@string/network"
+                android:textSize="@dimen/textSize" />
         </LinearLayout>
 
     </LinearLayout>

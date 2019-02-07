@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">cw1</string>
-    <string name="test">dawdaw</string>
+    <string name="camera">Camera</string>
+    <string name="albums">Albums</string>
+    <string name="collage">Collage</string>
+    <string name="network">Network</string>
 </resources>
