@@ -4,4 +4,9 @@
     <string name="albums">Albums</string>
     <string name="collage">Collage</string>
     <string name="network">Network</string>
+
+    <string name="aparat">Aparat</string>
+    <string name="album">Album</string>
+    <string name="kolaz">Kolaż</string>
+    <string name="siec">Sieć</string>
 </resources>

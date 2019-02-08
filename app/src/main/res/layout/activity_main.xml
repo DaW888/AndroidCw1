@@ -52,6 +52,7 @@
                 android:src="@drawable/outline_camera_black_18dp" />
 
             <TextView
+                android:id="@+id/camera"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -69,6 +70,7 @@
 
             <ImageView
                 android:layout_width="@dimen/imgSize"
+                android:id="@+id/albums"
                 android:layout_height="@dimen/imgSize"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -84,7 +86,8 @@
         </LinearLayout>
 
 
-    </LinearLayout>]
+    </LinearLayout>
+    ]
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -103,6 +106,7 @@
             <ImageView
                 android:layout_width="@dimen/imgSize"
                 android:layout_height="@dimen/imgSize"
+                android:id="@+id/collage"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:src="@drawable/outline_view_quilt_black_18dp" />
@@ -132,12 +136,22 @@
 
             <TextView
                 android:layout_width="match_parent"
+                android:id="@+id/network"
                 android:layout_height="wrap_content"
                 android:gravity="center"
 
                 android:text="@string/network"
                 android:textSize="@dimen/textSize" />
         </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:onClick="buttonClick"
+            android:clickable="true"
+
+            android:text="language" />
 
     </LinearLayout>
 </LinearLayout>
