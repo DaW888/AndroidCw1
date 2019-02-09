@@ -18,3 +18,10 @@
     #/build
     #/captures
     #.externalNativeBuild
+
+gdy mamy problem z wyswietlaniem preview:
+to w `res/values/styles.xml` :
+   ```xml 
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+   ```
+
