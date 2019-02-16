@@ -4,4 +4,5 @@
     <string name="albums">Albums</string>
     <string name="collage">Collage</string>
     <string name="network">Network</string>
+    <string name="title_activity_albums">AlbumsActivity</string>
 </resources>
