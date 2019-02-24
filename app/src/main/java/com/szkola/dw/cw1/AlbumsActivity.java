@@ -9,14 +9,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AlbumsActivity extends Activity {
 
     private ListView listView;
+    private ImageView addFolder;
 
 
     @Override
@@ -25,15 +29,6 @@ public class AlbumsActivity extends Activity {
         setContentView(R.layout.activity_albums);
 
         listView = findViewById(R.id.listView);
-        String[] array = new String[]{"output 1", "output 2", "output 3"};
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                AlbumsActivity.this,
-                R.layout.row,
-                R.id.tv1,
-                array
-        );
-        listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -44,21 +39,41 @@ public class AlbumsActivity extends Activity {
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int i, long l) {
                 Log.d("Tag", "dlugie przytrzymanie = " + i);
 
-//                AlertDialog.Builder alert = new AlertDialog.Builder(AlbumsActivity.this);
-//                alert.setTitle("UWaga");
-//                alert.setCancelable(false); // nie zamknie sie kiedy klikniemy poza nim
-//                alert.setMessage("TESTTT");
-//                alert.setNeutralButton("OK", null).show();
-
                 AlertDialog.Builder alert = new AlertDialog.Builder(AlbumsActivity.this);
-                alert.setTitle("Uwaga");
-                alert.setMessage("komunikat");
+                alert.setTitle("USUWANIE FOLDERU");
+                alert.setMessage("Czy na pewno chcesz usunąć folder?");
                 alert.setIcon(R.drawable.outline_language_black_18dp);
-                alert.setNeutralButton("OK", new AlertDialog.OnClickListener(){
-                    public void onClick(DialogInterface dialog, int which){
+
+                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.d("which do OK", String.valueOf(i));
+                        File pic = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                        File wajda = new File(pic, "wajda");
+                        File[] dirs = wajda.listFiles();
+                        dirs[i].delete();
+
+                        ArrayList<String> dirNames = new ArrayList<>();
+                        for (File dirName : wajda.listFiles()) {
+                            dirNames.add(String.valueOf(dirName.getName()));
+                        }
+                        Log.d("dirnames", String.valueOf(dirNames));
+                        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                                AlbumsActivity.this,
+                                R.layout.row,
+                                R.id.tv1,
+                                dirNames
+                        );
+                        listView.setAdapter(adapter);
+                    }
+                });
+                alert.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.d("which do NO", String.valueOf(which));
 
                     }
                 });
@@ -69,13 +84,65 @@ public class AlbumsActivity extends Activity {
 
         File pic = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         File wajda = new File(pic, "wajda");
-        File[] files = pic.listFiles();
+        File[] files = wajda.listFiles();
         Arrays.sort(files);
 
-        for(File file : wajda.listFiles()){
-            Log.d("xxx", String.valueOf(file.getName()));
-            //file.delete(); - usuniecie pliku
+//        String[] dirNames = new String[0];
+        ArrayList<String> dirNames = new ArrayList<>();
+        for (File dirName : wajda.listFiles()) {
+            dirNames.add(String.valueOf(dirName.getName()));
         }
+        Log.d("dirnames", String.valueOf(dirNames));
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                AlbumsActivity.this,
+                R.layout.row,
+                R.id.tv1,
+                dirNames
+        );
+        listView.setAdapter(adapter);
+
+
+        addFolder = findViewById(R.id.addFolder);
+        addFolder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("xxxxx", "KLIKAM");
+                AlertDialog.Builder alert = new AlertDialog.Builder(AlbumsActivity.this);
+
+                alert.setTitle("Stwórz folder");
+                alert.setMessage("nazwa Folderu");
+                final EditText input = new EditText(AlbumsActivity.this);
+                input.setText("Folder1");
+                alert.setView(input);
+                alert.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        File pic = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                        File wajda = new File(pic, "wajda");
+                        String strInput = input.getText().toString();
+                        Log.d("XXXX", strInput);
+
+                        File New = new File(wajda, strInput);
+                        New.mkdir();
+
+                        ArrayList<String> dirNames = new ArrayList<>();
+                        for (File dirName : wajda.listFiles()) {
+                            dirNames.add(String.valueOf(dirName.getName()));
+                        }
+                        Log.d("dirnames", String.valueOf(dirNames));
+                        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                                AlbumsActivity.this,
+                                R.layout.row,
+                                R.id.tv1,
+                                dirNames
+                        );
+                        listView.setAdapter(adapter);
+                    }
+                });
+
+                alert.show();
+            }
+        });
     }
 
 }

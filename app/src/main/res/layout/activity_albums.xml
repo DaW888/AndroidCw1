@@ -3,15 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AlbumsActivity"
-    android:orientation="horizontal"
-    >
+    android:orientation="vertical"
+    tools:context=".AlbumsActivity">
 
 
-    <ListView
-        android:id="@+id/listView"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </ListView>
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_alignParentTop="true"
+            >
+        </ListView>
+
+        <ImageView
+            android:id="@+id/addFolder"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_alignParentBottom="true"
+            android:rotation="-90"
+            android:src="@drawable/outline_arrow_forward_ios_black_18dp"
+            />
+    </RelativeLayout>
+
+
+
+
+
+
 </LinearLayout>

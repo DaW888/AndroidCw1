@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 200) {
             if (resultCode == RESULT_OK) {
                 Bundle extras = data.getExtras();
-                Bitmap b = (Bitmap) extras.get("data");
+                b = (Bitmap) extras.get("data");
                 networkImg.setImageBitmap(b);
             }
         } else if (requestCode == 100) {
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                Bitmap b = BitmapFactory.decodeStream(stream);
+                b = BitmapFactory.decodeStream(stream);
                 networkImg.setImageBitmap(b);
                 ByteArrayOutputStream streamOut = new ByteArrayOutputStream();
 
