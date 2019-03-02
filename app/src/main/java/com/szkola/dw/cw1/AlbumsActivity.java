@@ -2,6 +2,7 @@ package com.szkola.dw.cw1;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Environment;
@@ -21,6 +22,7 @@ public class AlbumsActivity extends Activity {
 
     private ListView listView;
     private ImageView addFolder;
+    private ArrayList<String> dirNames;
 
 
     @Override
@@ -34,6 +36,9 @@ public class AlbumsActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View v, int i, long l) {
                 Log.d("Tag", "numer klikanego wiersza w listview = " + i);
+                Intent intent = new Intent(AlbumsActivity.this, ImageList.class);
+                intent.putExtra("thisDirName", dirNames.get(i));
+                startActivity(intent);
             }
         });
 
@@ -88,7 +93,7 @@ public class AlbumsActivity extends Activity {
         Arrays.sort(files);
 
 //        String[] dirNames = new String[0];
-        ArrayList<String> dirNames = new ArrayList<>();
+        dirNames = new ArrayList<>();
         for (File dirName : wajda.listFiles()) {
             dirNames.add(String.valueOf(dirName.getName()));
         }

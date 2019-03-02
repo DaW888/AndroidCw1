@@ -132,23 +132,25 @@ public class MainActivity extends AppCompatActivity {
             SimpleDateFormat df = new SimpleDateFormat("yyMMdd_HHmmss");
             String fileName = df.format(new Date());
 
-            Arrays.sort(wajda.listFiles());
-            ArrayList<String> dirNames = new ArrayList<>();
-            for (File dirName : wajda.listFiles()) {
-                dirNames.add(String.valueOf(dirName.getName()));
-            }
+            //Alert do poprawy
+//            Arrays.sort(wajda.listFiles());
+//            ArrayList<String> dirNames = new ArrayList<>();
+//            for (File dirName : wajda.listFiles()) {
+//                dirNames.add(String.valueOf(dirName.getName()));
+//            }
+//
+//            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+//            alert.setTitle("Wybierz folder do zapisu");
+//            alert.setItems((String[]) dirNames.toArray(), new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialog, int which) {
+//                    Log.d("DASDSADWASD", String.valueOf(dialog));
+//                    Log.d("Wazme mp moe", String.valueOf(which));
+//                }
+//            });
+//            alert.show();
 
-            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-            alert.setTitle("Wybierz folder do zapisu");
-            alert.setItems((String[]) dirNames.toArray(), new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    Log.d("DASDSADWASD", String.valueOf(dialog));
-                    Log.d("Wazme mp moe", String.valueOf(which));
-                }
-            });
-            alert.show();
-
+            //pomocnicze z linijek wyzej, do wywalenia
 //            alert.setItems(opcje, new DialogInterface.OnClickListener() {
 //                @Override
 //                public void onClick(DialogInterface dialogInterface, int i) {
@@ -168,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
 //            alert.show();
 
             try {
-                fs = new FileOutputStream(wajda.getPath() + "/" + fileName + ".jpg");
+                fs = new FileOutputStream(wajda.getPath() + "/ludzie/" + fileName + ".jpg");
                 fs.write(byteArray);
                 fs.close();
             } catch (IOException e) {
