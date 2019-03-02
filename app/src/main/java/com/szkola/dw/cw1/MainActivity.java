@@ -11,6 +11,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,7 +19,15 @@ import android.widget.LinearLayout;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -88,13 +97,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         networkImg = findViewById(R.id.networkImg);
-        Bitmap b = null;
         super.onActivityResult(requestCode, resultCode, data);
+
+        Bitmap b = null;
         if (requestCode == 200) {
             if (resultCode == RESULT_OK) {
                 Bundle extras = data.getExtras();
                 b = (Bitmap) extras.get("data");
-                networkImg.setImageBitmap(b);
+//                networkImg.setImageBitmap(b);
             }
         } else if (requestCode == 100) {
             if (resultCode == RESULT_OK) {
@@ -107,13 +117,63 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 b = BitmapFactory.decodeStream(stream);
-                networkImg.setImageBitmap(b);
-                ByteArrayOutputStream streamOut = new ByteArrayOutputStream();
-
-
+//                networkImg.setImageBitmap(b);
             }
         }
+
         if (b != null) {
+            ByteArrayOutputStream streamOut = new ByteArrayOutputStream();
+            b.compress(Bitmap.CompressFormat.JPEG, 100, streamOut);
+            byte[] byteArray = streamOut.toByteArray();
+
+            FileOutputStream fs;
+            File pic = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+            File wajda = new File(pic, "Wajda");
+            SimpleDateFormat df = new SimpleDateFormat("yyMMdd_HHmmss");
+            String fileName = df.format(new Date());
+
+            Arrays.sort(wajda.listFiles());
+            ArrayList<String> dirNames = new ArrayList<>();
+            for (File dirName : wajda.listFiles()) {
+                dirNames.add(String.valueOf(dirName.getName()));
+            }
+
+            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+            alert.setTitle("Wybierz folder do zapisu");
+            alert.setItems((String[]) dirNames.toArray(), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Log.d("DASDSADWASD", String.valueOf(dialog));
+                    Log.d("Wazme mp moe", String.valueOf(which));
+                }
+            });
+            alert.show();
+
+//            alert.setItems(opcje, new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialogInterface, int i) {
+//                    if (i == 0) {
+//                        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                        if (intent.resolveActivity(getPackageManager()) != null) {
+//                            startActivityForResult(intent, 200);
+//                        }
+//                    } else if (i == 1) {
+//                        Intent intent = new Intent(Intent.ACTION_PICK);
+//                        intent.setType("image/*");
+//                        startActivityForResult(intent, 100);
+//                    }
+//                }
+//
+//            });
+//            alert.show();
+
+            try {
+                fs = new FileOutputStream(wajda.getPath() + "/" + fileName + ".jpg");
+                fs.write(byteArray);
+                fs.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 //            b.compress(Bitmap.CompressFormat.JPEG, 100, stream); // stream zdefiniowac !
         }
     }
