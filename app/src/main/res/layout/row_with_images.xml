@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/oneImage"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_weight="1" />
 
     />
@@ -16,7 +16,7 @@
     <ImageView
         android:id="@+id/removeImage"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_weight="1.5"
         android:src="@drawable/outline_delete_black_18dp"
         />
@@ -24,14 +24,14 @@
     <ImageView
         android:id="@+id/editImage"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_weight="1.5"
         android:src="@drawable/outline_edit_black_18dp" />
 
     <ImageView
         android:id="@+id/infoImage"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_weight="1.5"
         android:src="@drawable/outline_info_black_18dp"
 

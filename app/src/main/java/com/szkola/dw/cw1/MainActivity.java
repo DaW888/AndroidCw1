@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Camera;
 import android.net.Uri;
+import android.os.Debug;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
@@ -15,6 +16,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.amitshekhar.DebugDB;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -31,12 +34,13 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    LinearLayout AlbumsClick, CameraClick;
+    LinearLayout AlbumsClick, CameraClick, NotesClick;
     ImageView networkImg;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.wtf("ADDRESS IP", DebugDB.getAddressLog());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -75,6 +79,15 @@ public class MainActivity extends AppCompatActivity {
 
                 });
                 alert.show();
+            }
+        });
+
+        NotesClick = findViewById(R.id.notes);
+        NotesClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, NotesList.class);
+                startActivity(intent);
             }
         });
 

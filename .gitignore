@@ -3,6 +3,7 @@
 !/app/src/main/**
 !.gitignore
 !README.md
+!/app/build.gradle
 
 #*.iml
 #.gradle

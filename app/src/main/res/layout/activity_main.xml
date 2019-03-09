@@ -143,4 +143,45 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/buttonMenu"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/imgSize"
+                android:layout_height="@dimen/imgSize"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:src="@drawable/outline_edit_black_18dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:text="@string/notes"
+                android:textSize="@dimen/textSize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical">
+        </LinearLayout>
+
+    </LinearLayout>
 </LinearLayout>

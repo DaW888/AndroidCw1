@@ -43,6 +43,14 @@ public class ImageList extends AppCompatActivity {
         );
         lvImages.setAdapter(adapter);
 
+        DataBaseManager db = new DataBaseManager(
+                ImageList.this,
+                "NotatkiWajdaDawid.db",
+                null,
+                1
+        );
+        db.insert("asd", "dsa");
+        db.close();
 
     }
 
