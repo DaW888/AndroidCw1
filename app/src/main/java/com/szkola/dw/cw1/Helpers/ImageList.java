@@ -1,12 +1,13 @@
-package com.szkola.dw.cw1;
+package com.szkola.dw.cw1.Helpers;
 
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.widget.ListView;
+
+import com.szkola.dw.cw1.Adapters.TestAdapter;
+import com.szkola.dw.cw1.R;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -45,11 +46,11 @@ public class ImageList extends AppCompatActivity {
 
         DataBaseManager db = new DataBaseManager(
                 ImageList.this,
-                "NotatkiWajdaDawid.db",
+                "NotatkiWajdaDawid2.db",
                 null,
-                1
+                2
         );
-        db.insert("asd", "dsa");
+        db.insert("asd", "sad", -256);
         db.close();
 
     }

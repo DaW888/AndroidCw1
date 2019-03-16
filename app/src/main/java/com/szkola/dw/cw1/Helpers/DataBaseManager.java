@@ -1,4 +1,4 @@
-package com.szkola.dw.cw1;
+package com.szkola.dw.cw1.Helpers;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -18,16 +18,17 @@ public class DataBaseManager extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE if EXISTS tabela1");
+        sqLiteDatabase.execSQL("DROP TABLE if EXISTS tabela2");
         onCreate(sqLiteDatabase);
     }
 
-    public boolean insert(String a, String b){
+    public boolean insert(String title, String context, int color){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put("a", a);
-        contentValues.put("b", b);
+        contentValues.put("title", title);
+        contentValues.put("context", context);
+        contentValues.put("color", color);
 
         db.insertOrThrow("tabela1", null, contentValues);
         db.close();

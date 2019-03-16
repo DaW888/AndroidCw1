@@ -1,4 +1,4 @@
-package com.szkola.dw.cw1;
+package com.szkola.dw.cw1.Activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -13,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+
+import com.szkola.dw.cw1.Helpers.ImageList;
+import com.szkola.dw.cw1.R;
 
 import java.io.File;
 import java.util.ArrayList;

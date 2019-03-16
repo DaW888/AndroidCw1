@@ -1,12 +1,10 @@
-package com.szkola.dw.cw1;
+package com.szkola.dw.cw1.Activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Camera;
 import android.net.Uri;
-import android.os.Debug;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
@@ -18,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.amitshekhar.DebugDB;
+import com.szkola.dw.cw1.Helpers.NotesList;
+import com.szkola.dw.cw1.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -25,12 +25,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 

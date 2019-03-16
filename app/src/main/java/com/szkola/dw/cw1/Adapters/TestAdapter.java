@@ -1,8 +1,12 @@
-package com.szkola.dw.cw1;
+package com.szkola.dw.cw1.Adapters;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,7 +15,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+import com.szkola.dw.cw1.R;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -20,6 +28,7 @@ public class TestAdapter extends ArrayAdapter {
     private ArrayList<File> _list;
     private Context _context;
     private int _resource;
+    private View editView;
 
     public TestAdapter(@NonNull Context context, int resource, @NonNull ArrayList<File> objects) {
         super(context, resource, objects);
@@ -39,7 +48,7 @@ public class TestAdapter extends ArrayAdapter {
 
         ImageView image = convertView.findViewById(R.id.oneImage);
         ImageView remove = convertView.findViewById(R.id.removeImage);
-        ImageView edit = convertView.findViewById(R.id.editImage);
+        final ImageView edit = convertView.findViewById(R.id.editImage);
         ImageView info = convertView.findViewById(R.id.infoImage);
 
 
@@ -68,14 +77,37 @@ public class TestAdapter extends ArrayAdapter {
         });
 
         edit.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ViewHolder")
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(_context);
+                editView = View.inflate(_context, R.layout.activity_notes_list, null);
                 alert.setTitle("Edit");
-                alert.setMessage(_list.get(inPosition).getPath());
+                alert.setView(editView);
+//                alert.setMessage(_list.get(inPosition).getPath());
+
+                final LinearLayout colorsParent = editView.findViewById(R.id.colorsParent);
+                for (int i = 0; i < colorsParent.getChildCount(); i++) {
+                    colorsParent.getChildAt(i).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            int color = Color.TRANSPARENT;
+                            Drawable background = view.getBackground();
+                            if (background instanceof ColorDrawable) {
+                                color = ((ColorDrawable) background).getColor();
+                                EditText titleNote = editView.findViewById(R.id.titleNote);
+                                titleNote.setTextColor(color);
+                            }
+                            Log.wtf("color", String.valueOf(color));
+                        }
+                    });
+                }
+
                 alert.setNeutralButton("OK", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void onClick(DialogInterface dialog, int which) { // tutaj bedzie dodwanie notatki do bazy
+
+
                     }
                 });
                 alert.show();

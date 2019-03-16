@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,13 +20,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AlbumsActivity"
+            android:name=".Activities.AlbumsActivity"
             android:label="@string/title_activity_albums" />
         <activity
-            android:name=".ImageList"
+            android:name=".Helpers.ImageList"
             android:label="@string/title_activity_image_list"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".NotesList"></activity>
+        <activity android:name=".Helpers.NotesList"></activity>
     </application>
 
 </manifest>

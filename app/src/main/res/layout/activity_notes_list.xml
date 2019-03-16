@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NotesList"
+    tools:context=".Helpers.NotesList"
     android:orientation="vertical">
 
     <EditText
         android:id="@+id/titleNote"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="tytul"
+        android:text="Tytuł"
         android:textStyle="bold"
         />
 
@@ -19,10 +19,11 @@
         android:id="@+id/textNote"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="tekst"
+        android:text="Tekst"
         />
 
     <LinearLayout
+        android:id="@+id/colorsParent"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
