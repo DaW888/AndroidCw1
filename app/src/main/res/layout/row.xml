@@ -7,8 +7,9 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_weight="2"
+        android:layout_marginTop="10dp"
         android:src="@drawable/outline_photo_library_black_18dp" />
 
         />
@@ -17,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textSize="30dp"
+        android:textSize="50dp"
         android:textAlignment="center"
         />
 </LinearLayout>

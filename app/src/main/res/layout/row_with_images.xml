@@ -8,12 +8,13 @@
     <ImageView
         android:id="@+id/oneImage"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="100dp"
         android:layout_weight="1" />
 
     />
 
     <ImageView
+        android:layout_marginTop="15dp"
         android:id="@+id/removeImage"
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -22,6 +23,7 @@
         />
 
     <ImageView
+        android:layout_marginTop="15dp"
         android:id="@+id/editImage"
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -29,6 +31,7 @@
         android:src="@drawable/outline_edit_black_18dp" />
 
     <ImageView
+        android:layout_marginTop="15dp"
         android:id="@+id/infoImage"
         android:layout_width="match_parent"
         android:layout_height="70dp"

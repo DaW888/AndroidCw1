@@ -19,10 +19,6 @@ public class ImageList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_list);
 
-        ArrayList<String> list = new ArrayList<>();
-        list.add("cos");
-        list.add("cos");
-
         Bundle bundle = getIntent().getExtras();
         String folderName = bundle.getString("thisDirName");
         Log.d("thisDirName", folderName);
@@ -31,27 +27,28 @@ public class ImageList extends AppCompatActivity {
         File wajda = new File(pic, "wajda");
         File inFolder = new File(wajda, folderName);
 
-        ArrayList<File> Images = new ArrayList<>();
+        ArrayList<String> Images = new ArrayList<>();
         for (File dirName : inFolder.listFiles()) {
-            Images.add(dirName);
+            Images.add(dirName.getPath());
         }
+
+        DataBaseManager db = new DataBaseManager(
+                ImageList.this,
+                "NotatkiWajdaDawid.db",
+                null,
+                3
+        );
 
         lvImages = findViewById(R.id.listViewImages);
         TestAdapter adapter = new TestAdapter(
                 ImageList.this,
                 R.layout.row_with_images,
-                Images
+                Images, db
         );
         lvImages.setAdapter(adapter);
 
-        DataBaseManager db = new DataBaseManager(
-                ImageList.this,
-                "NotatkiWajdaDawid2.db",
-                null,
-                2
-        );
-        db.insert("asd", "sad", -256);
-        db.close();
+//        db.insert("asd", "sad", -256);
+//        db.close();
 
     }
 

@@ -16,7 +16,7 @@
         />
 
     <EditText
-        android:id="@+id/textNote"
+        android:id="@+id/contextNote"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="Tekst"

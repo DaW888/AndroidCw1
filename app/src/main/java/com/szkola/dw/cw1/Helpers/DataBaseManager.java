@@ -12,23 +12,24 @@ public class DataBaseManager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE tabela1 (_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'a' TEXT, 'b' TEXT)");
+        sqLiteDatabase.execSQL("CREATE TABLE tabela1 (_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'title' TEXT, 'context' TEXT, 'color' INT, 'path' TEXT)");
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE if EXISTS tabela2");
+        sqLiteDatabase.execSQL("DROP TABLE if EXISTS tabela1");
         onCreate(sqLiteDatabase);
     }
 
-    public boolean insert(String title, String context, int color){
+    public boolean insert(String title, String context, int color, String path){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
         contentValues.put("title", title);
         contentValues.put("context", context);
         contentValues.put("color", color);
+        contentValues.put("path", path);
 
         db.insertOrThrow("tabela1", null, contentValues);
         db.close();
