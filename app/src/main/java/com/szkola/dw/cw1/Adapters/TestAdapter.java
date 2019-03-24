@@ -20,7 +20,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.szkola.dw.cw1.Helpers.DataBaseManager;
-import com.szkola.dw.cw1.Helpers.ImageList;
 import com.szkola.dw.cw1.R;
 
 import java.io.File;
@@ -89,7 +88,7 @@ public class TestAdapter extends ArrayAdapter {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(_context);
-                editView = View.inflate(_context, R.layout.activity_notes_list, null);
+                editView = View.inflate(_context, R.layout.notes_create_alert, null);
                 alert.setTitle("Edit");
                 alert.setView(editView);
 

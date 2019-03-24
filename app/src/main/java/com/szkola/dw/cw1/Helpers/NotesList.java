@@ -10,6 +10,6 @@ public class NotesList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notes_list); // zmienic to na adapter
+        setContentView(R.layout.notes_create_alert); // zmienic to na adapter
     }
 }
