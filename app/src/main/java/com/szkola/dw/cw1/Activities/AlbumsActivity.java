@@ -11,10 +11,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.szkola.dw.cw1.Helpers.ImageList;
+import com.szkola.dw.cw1.Helpers.Kolo;
 import com.szkola.dw.cw1.R;
 
 import java.io.File;
@@ -151,6 +153,12 @@ public class AlbumsActivity extends Activity {
                 alert.show();
             }
         });
+
+//        Kolo kolo = new Kolo(AlbumsActivity.this);
+//        FrameLayout fl = findViewById(R.id.frKolo);
+//        fl.addView(kolo);
+
+
     }
 
 }

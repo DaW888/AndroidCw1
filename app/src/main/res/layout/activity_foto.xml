@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            />
+        <LinearLayout
+            android:layout_marginTop="500dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+            <!--TUTAJ OBRAZKI-->
+        </LinearLayout>
+
+        <!--"Normalna" zawartość ekranu-->
+
+    </RelativeLayout>
+
+    <!--ListView które będzie stanowić wysuwane menu, max 320 dp szerokości-->
+
+    <ListView
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#ff0000"
+
+        />
+
+</android.support.v4.widget.DrawerLayout>

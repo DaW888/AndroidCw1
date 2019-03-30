@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -19,11 +20,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.szkola.dw.cw1.Activities.FotoActivity;
 import com.szkola.dw.cw1.Helpers.DataBaseManager;
 import com.szkola.dw.cw1.R;
 
 import java.io.File;
 import java.util.ArrayList;
+
+import static android.support.v4.content.ContextCompat.startActivity;
 
 public class TestAdapter extends ArrayAdapter {
     private final DataBaseManager _db;
@@ -64,6 +68,10 @@ public class TestAdapter extends ArrayAdapter {
             @Override
             public void onClick(View view) {
                 Log.wtf("XXX", "KLIK W OBRAZEK" + _list.get(inPosition));
+                // tutaj wykonywanie activity drawera
+                Intent intent = new Intent(_context, FotoActivity.class);
+                intent.putExtra("ImagePath", _list.get(inPosition));
+                _context.startActivity(intent);
             }
         });
 

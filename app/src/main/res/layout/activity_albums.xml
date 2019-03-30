@@ -29,7 +29,11 @@
             />
     </RelativeLayout>
 
-
+    <!--<FrameLayout-->
+        <!--android:background="#ff0000"-->
+        <!--android:id="@+id/frKolo"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"/>-->
 
 
 

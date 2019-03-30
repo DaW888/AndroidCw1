@@ -27,7 +27,8 @@
             android:label="@string/title_activity_image_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Helpers.NotesList" />
-        <activity android:name=".Activities.NotesActivity"></activity>
+        <activity android:name=".Activities.NotesActivity" />
+        <activity android:name=".Activities.FotoActivity"></activity>
     </application>
 
 </manifest>
