@@ -8,8 +8,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
+            android:id="@+id/ivChoosenImage"
             android:layout_width="match_parent"
             android:layout_height="500dp"
+            android:scaleType="fitCenter"
             />
         <LinearLayout
             android:layout_marginTop="500dp"
@@ -25,11 +27,13 @@
     <!--ListView które będzie stanowić wysuwane menu, max 320 dp szerokości-->
 
     <ListView
+        android:id="@+id/lvMenuFoto"
         android:layout_width="300dp"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="#ff0000"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
 
-        />
+        android:layout_gravity="start"
+        android:background="#a5fff4" />
 
 </android.support.v4.widget.DrawerLayout>
