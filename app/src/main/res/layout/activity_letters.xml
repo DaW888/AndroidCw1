@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.LettersActivity">
+
+    <RelativeLayout
+        android:id="@+id/rvFontPreview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        
+    </RelativeLayout>
+    <EditText
+        android:id="@+id/etInputText"
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:text="Przykladowy tekst"
+        />
+    <ScrollView
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+        <LinearLayout
+            android:id="@+id/llFontList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_marginTop="520dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/ivAddTextToPhoto"
+            android:layout_marginLeft="150dp"
+            android:rotation="270"
+            android:src="@drawable/outline_arrow_forward_ios_black_18dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+    </LinearLayout>
+
+</RelativeLayout>

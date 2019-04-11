@@ -28,7 +28,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Helpers.NotesList" />
         <activity android:name=".Activities.NotesActivity" />
-        <activity android:name=".Activities.FotoActivity"></activity>
+        <activity android:name=".Activities.FotoActivity" />
+        <activity android:name=".Activities.LettersActivity"></activity>
     </application>
 
 </manifest>
