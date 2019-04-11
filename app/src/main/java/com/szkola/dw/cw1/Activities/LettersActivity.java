@@ -1,14 +1,19 @@
 package com.szkola.dw.cw1.Activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Layout;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -27,6 +32,7 @@ public class LettersActivity extends AppCompatActivity {
 
     String fontName = "comic.tff";
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,6 +106,30 @@ public class LettersActivity extends AppCompatActivity {
                     finish();
                 }
             });
+
+            View incColorPickerFill = findViewById(R.id.incColorPickerFill);
+            ImageView ivColorPicker = incColorPickerFill.findViewById(R.id.ivColorPickerFill);
+            ivColorPicker.setDrawingCacheEnabled(true);
+
+            ivColorPicker.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    switch (event.getAction()){
+                        case MotionEvent.ACTION_DOWN:
+                            break;
+                        case MotionEvent.ACTION_MOVE:
+                            Bitmap bmp = v.getDrawingCache();
+                            int color = bmp.getPixel((int)event.getY(), (int)event.getY());
+                            Log.d("kolor", String.valueOf(color)); // SCROLUJE ZAMIAST PODAĆ WARTOŚĆ
+                            break;
+                        case MotionEvent.ACTION_UP:
+                            break;
+                    }
+                    return false;
+                }
+            });
+
+
 
         } catch (IOException e) {
             e.printStackTrace();

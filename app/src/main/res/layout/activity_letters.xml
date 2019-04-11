@@ -45,4 +45,7 @@
             android:layout_height="60dp" />
     </LinearLayout>
 
+    <include layout= "@layout/color_picker"
+        android:id="@+id/incColorPickerFill"/>
+
 </RelativeLayout>
