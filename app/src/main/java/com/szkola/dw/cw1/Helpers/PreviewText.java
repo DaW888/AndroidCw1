@@ -10,9 +10,11 @@ import android.view.View;
 public class PreviewText extends View {
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     String text;
-    public PreviewText(Context context, Typeface tf, String _text) {
+    Integer colour;
+    public PreviewText(Context context, Typeface tf, String _text, Integer _color) {
         super(context);
         text = _text;
+        colour = _color;
         paint.reset();
         paint.setAntiAlias(true);
         paint.setTextSize(90);
@@ -23,7 +25,7 @@ public class PreviewText extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         paint.setStyle(Paint.Style.FILL);
-        paint.setColor(Color.RED);
+        paint.setColor(colour);
         canvas.drawText(text, 0, 70, paint);
     }
 }

@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -31,6 +32,7 @@ import java.security.cert.LDAPCertStoreParameters;
 public class LettersActivity extends AppCompatActivity {
 
     String fontName = "comic.tff";
+    Integer colour = -3600;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -56,7 +58,7 @@ public class LettersActivity extends AppCompatActivity {
                 llFontList.addView(tv);
 
                 final RelativeLayout rvFontPreview = findViewById(R.id.rvFontPreview);
-                PreviewText previewText = new PreviewText(LettersActivity.this, tf, "Podaj Teskt");
+                PreviewText previewText = new PreviewText(LettersActivity.this, tf, "Podaj Teskt", colour);
                 rvFontPreview.removeAllViews();
                 rvFontPreview.addView(previewText);
 
@@ -65,7 +67,7 @@ public class LettersActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         fontName = font;
-                        PreviewText previewText = new PreviewText(LettersActivity.this, tf, etInputText.getText().toString());
+                        PreviewText previewText = new PreviewText(LettersActivity.this, tf, etInputText.getText().toString(), colour);
                         rvFontPreview.removeAllViews();
                         rvFontPreview.addView(previewText);
 
@@ -83,7 +85,7 @@ public class LettersActivity extends AppCompatActivity {
 
                             @Override
                             public void afterTextChanged(Editable s) {
-                                PreviewText previewText = new PreviewText(LettersActivity.this, tf, etInputText.getText().toString());
+                                PreviewText previewText = new PreviewText(LettersActivity.this, tf, etInputText.getText().toString(), colour);
                                 rvFontPreview.removeAllViews();
                                 rvFontPreview.addView(previewText);
                             }
@@ -101,6 +103,7 @@ public class LettersActivity extends AppCompatActivity {
                     Intent intent = new Intent();
                     intent.putExtra("fontName", fontName);
                     intent.putExtra("inputText", etInputText.getText().toString());
+                    intent.putExtra("color", colour);
 
                     setResult(10, intent);
                     finish();
@@ -111,6 +114,8 @@ public class LettersActivity extends AppCompatActivity {
             ImageView ivColorPicker = incColorPickerFill.findViewById(R.id.ivColorPickerFill);
             ivColorPicker.setDrawingCacheEnabled(true);
 
+            final Button btSetColor = incColorPickerFill.findViewById(R.id.btSetColor);
+
             ivColorPicker.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
@@ -120,12 +125,15 @@ public class LettersActivity extends AppCompatActivity {
                         case MotionEvent.ACTION_MOVE:
                             Bitmap bmp = v.getDrawingCache();
                             int color = bmp.getPixel((int)event.getY(), (int)event.getY());
+                            colour = color;
                             Log.d("kolor", String.valueOf(color)); // SCROLUJE ZAMIAST PODAĆ WARTOŚĆ
+                            btSetColor.setBackgroundColor(color);
+
                             break;
                         case MotionEvent.ACTION_UP:
                             break;
                     }
-                    return false;
+                    return true;
                 }
             });
 
