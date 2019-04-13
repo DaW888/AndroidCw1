@@ -13,11 +13,27 @@
     </RelativeLayout>
     <EditText
         android:id="@+id/etInputText"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_marginTop="50dp"
         android:layout_height="50dp"
         android:textSize="20dp"
         android:text="Przykladowy tekst"
+        />
+    <Button
+        android:id="@+id/btFillFont"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="250dp"
+        android:background="#ffff00"
+        />
+    <Button
+        android:id="@+id/btStrokeFont"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="305dp"
+        android:background="#ff0000"
         />
     <ScrollView
         android:layout_marginTop="100dp"
@@ -46,6 +62,7 @@
     </LinearLayout>
 
     <include layout= "@layout/color_picker"
-        android:id="@+id/incColorPickerFill"/>
+        android:id="@+id/incColorPickerFill"
+        android:visibility="gone"/>
 
 </RelativeLayout>

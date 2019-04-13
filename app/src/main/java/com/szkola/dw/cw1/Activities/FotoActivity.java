@@ -1,6 +1,7 @@
 package com.szkola.dw.cw1.Activities;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -16,7 +17,9 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 
 import com.szkola.dw.cw1.Adapters.DrawerLeftFotoMenu;
+import com.szkola.dw.cw1.Helpers.Networking;
 import com.szkola.dw.cw1.Helpers.PreviewText;
+import com.szkola.dw.cw1.Helpers.UploadFoto;
 import com.szkola.dw.cw1.R;
 
 import java.io.File;
@@ -42,7 +45,7 @@ public class FotoActivity extends AppCompatActivity {
 
         ArrayList<String> menuArray = new ArrayList<>();
         menuArray.add("Fonts");
-        menuArray.add("Test");
+        menuArray.add("To SPEC");
         menuArray.add("Test");
 
         Log.d("dirnames", String.valueOf(menuArray));
@@ -56,10 +59,25 @@ public class FotoActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ProgressDialog progressDialog;
+
                 if (position == 0) {
                     Log.wtf("asd", "klikam font");
                     Intent intent = new Intent(FotoActivity.this, LettersActivity.class);
                     startActivityForResult(intent, 10);
+                }
+                if (position == 1){
+                    boolean boolNetworking = Networking.checkNetworking(FotoActivity.this);
+                    Log.d("XXX", String.valueOf(boolNetworking));
+                    if(!boolNetworking){
+                        Log.d("XXX", "BRAK INTERNETU");
+                        progressDialog = new ProgressDialog(FotoActivity.this);
+                        progressDialog.setMessage("POŁĄCZ SIĘ Z INTENERTEM");
+                        progressDialog.setCancelable(true);
+                        progressDialog.show();
+                    }else{
+                        new UploadFoto().execute("http://4ia1.spec.pl.hostingasp.pl/test_uploadu/SaveCollage.aspx");
+                    }
                 }
             }
         });

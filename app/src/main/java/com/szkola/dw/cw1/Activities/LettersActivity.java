@@ -48,8 +48,8 @@ public class LettersActivity extends AppCompatActivity {
             final EditText etInputText = findViewById(R.id.etInputText);
 
 
-            for(final String font: fonts){
-                final Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/"+font);
+            for (final String font : fonts) {
+                final Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/" + font);
 
                 TextView tv = new TextView(this);
                 tv.setText("Nie wszystkie czcionki obsługują polskie znaki!");
@@ -110,33 +110,54 @@ public class LettersActivity extends AppCompatActivity {
                 }
             });
 
-            View incColorPickerFill = findViewById(R.id.incColorPickerFill);
+            final View incColorPickerFill = findViewById(R.id.incColorPickerFill);
             ImageView ivColorPicker = incColorPickerFill.findViewById(R.id.ivColorPickerFill);
             ivColorPicker.setDrawingCacheEnabled(true);
 
+
             final Button btSetColor = incColorPickerFill.findViewById(R.id.btSetColor);
+
+            Button btFillFont = findViewById(R.id.btFillFont);
+            btFillFont.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    incColorPickerFill.setVisibility(View.VISIBLE);
+                }
+            });
+
+            Button btStrokeFont = findViewById(R.id.btStrokeFont);
+            btStrokeFont.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    incColorPickerFill.setVisibility(View.VISIBLE);
+                }
+            });
 
             ivColorPicker.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    switch (event.getAction()){
+                    switch (event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
                             break;
                         case MotionEvent.ACTION_MOVE:
                             Bitmap bmp = v.getDrawingCache();
-                            int color = bmp.getPixel((int)event.getY(), (int)event.getY());
-                            colour = color;
-                            Log.d("kolor", String.valueOf(color)); // SCROLUJE ZAMIAST PODAĆ WARTOŚĆ
-                            btSetColor.setBackgroundColor(color);
+                            if (bmp.getWidth() > event.getX() && bmp.getHeight() > event.getY()) {
+
+                                int color = bmp.getPixel((int) event.getX(), (int) event.getY());
+                                colour = color;
+                                Log.d("kolor", String.valueOf(color)); // SCROLUJE ZAMIAST PODAĆ WARTOŚĆ
+                                btSetColor.setBackgroundColor(color);
+                            }
 
                             break;
                         case MotionEvent.ACTION_UP:
+                            incColorPickerFill.setVisibility(View.GONE);
+
                             break;
                     }
                     return true;
                 }
             });
-
 
 
         } catch (IOException e) {
