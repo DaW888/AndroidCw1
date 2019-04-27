@@ -30,7 +30,8 @@
         <activity android:name=".Helpers.NotesList" />
         <activity android:name=".Activities.NotesActivity" />
         <activity android:name=".Activities.FotoActivity" />
-        <activity android:name=".Activities.LettersActivity"></activity>
+        <activity android:name=".Activities.LettersActivity" />
+        <activity android:name=".Activities.NetworkActivity"></activity>
     </application>
 
 </manifest>

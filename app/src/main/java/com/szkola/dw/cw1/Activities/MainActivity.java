@@ -30,7 +30,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    LinearLayout AlbumsClick, CameraClick, NotesClick;
+    LinearLayout AlbumsClick, CameraClick, NotesClick, NetworkClick;
     ImageView networkImg;
 
 
@@ -45,6 +45,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AlbumsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        NetworkClick = findViewById(R.id.networkClick);
+        NetworkClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, NetworkActivity.class);
                 startActivity(intent);
             }
         });
