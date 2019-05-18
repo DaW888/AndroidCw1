@@ -21,9 +21,12 @@
 
             <ImageView
                 android:id="@+id/ivImageItem"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:background="#ff00ff"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffbb1c"
+                android:scaleType="fitCenter"
+
+
                 />
             <TextView
                 android:id="@+id/bTxt"

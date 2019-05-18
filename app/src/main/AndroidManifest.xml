@@ -31,7 +31,8 @@
         <activity android:name=".Activities.NotesActivity" />
         <activity android:name=".Activities.FotoActivity" />
         <activity android:name=".Activities.LettersActivity" />
-        <activity android:name=".Activities.NetworkActivity"></activity>
+        <activity android:name=".Activities.NetworkActivity" />
+        <activity android:name=".Activities.EffectsActivity"></activity>
     </application>
 
 </manifest>

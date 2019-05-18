@@ -67,7 +67,7 @@ public class NetworkActivity extends AppCompatActivity {
                                 JSONObject obj = jsonArray.getJSONObject(i);
                                 ImageData listItem = new ImageData(
                                         "czas zapisu: " + obj.getString("IMAGE_SAVE_TIME"),
-                                        "wielkość zdjęcia: " + obj.getString("IMAGE_NAME")
+                                        "" + obj.getString("IMAGE_NAME")
 
                                 );
                                 list.add(listItem);

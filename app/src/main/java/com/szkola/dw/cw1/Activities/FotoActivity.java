@@ -46,7 +46,7 @@ public class FotoActivity extends AppCompatActivity {
         ArrayList<String> menuArray = new ArrayList<>();
         menuArray.add("Fonts");
         menuArray.add("To SPEC");
-        menuArray.add("Test");
+        menuArray.add("Effects");
 
         Log.d("dirnames", String.valueOf(menuArray));
         DrawerLeftFotoMenu adapter = new DrawerLeftFotoMenu(
@@ -78,6 +78,10 @@ public class FotoActivity extends AppCompatActivity {
                     }else{
                         new UploadFoto().execute("http://4ia1.spec.pl.hostingasp.pl/test_uploadu/SaveCollage.aspx");
                     }
+                }
+                if(position == 2){
+                    Intent intent = new Intent(FotoActivity.this, EffectsActivity.class);
+                    startActivity(intent);
                 }
             }
         });
